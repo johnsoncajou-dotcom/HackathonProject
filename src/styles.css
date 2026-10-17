@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 
+/* Global typography, colors, and sizing defaults. */
 :root {
   font-family: "DM Sans", sans-serif;
   color: #26243b;
@@ -21,6 +22,7 @@ button, input { font: inherit; }
 button { cursor: pointer; }
 button:disabled { cursor: not-allowed; }
 
+/* Shared page header and introductory artwork. */
 .page-shell { max-width: 1080px; min-height: 100vh; margin: 0 auto; padding: 0 52px; }
 .topbar { height: 84px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e9e9f0; }
 .brand { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-family: Manrope, sans-serif; font-size: 17px; font-weight: 800; letter-spacing: -0.8px; text-decoration: none; }
@@ -46,6 +48,7 @@ h1 { margin-bottom: 13px; font-family: Manrope, sans-serif; font-size: clamp(36p
 .spark-two { left: 14px; bottom: 25px; color: #8bcfb2; font-size: 22px; }
 .art-note { position: absolute; right: -23px; bottom: 24px; padding: 8px 12px; color: #5541bb; background: #fff; border-radius: 20px; box-shadow: 0 5px 18px #4a3c9914; font-size: 11px; font-weight: 700; transform: rotate(-9deg); }
 
+/* Lobby controls and game-mode selectors. */
 .lobby-card, .game-card { max-width: 624px; margin: 0 auto; padding: 29px 34px 24px; background: #fff; border: 1px solid #efeff4; border-radius: 17px; box-shadow: 0 13px 38px #2924480a; }
 .card-heading { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 25px; }
 .step-badge { display: grid; flex: 0 0 29px; place-items: center; width: 29px; height: 29px; color: #fff; background: var(--purple); border-radius: 9px; font-size: 13px; font-weight: 700; }
@@ -55,7 +58,20 @@ h2 { margin: 1px 0 4px; font-family: Manrope, sans-serif; font-size: 17px; font-
 .text-field { width: 100%; height: 47px; padding: 0 14px; color: var(--ink); background: #fbfbfd; border: 1px solid #e9e8f0; border-radius: 9px; outline: none; font-size: 13px; transition: border-color .15s, box-shadow .15s; }
 .text-field:focus { border-color: #9e92e8; box-shadow: 0 0 0 3px #6955d81a; }
 .text-field::placeholder { color: #b6b5c3; }
+.game-type-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.game-type-option { display: grid; gap: 3px; min-height: 58px; padding: 10px; color: #777488; text-align: left; background: #fbfbfd; border: 1px solid #e9e8f0; border-radius: 9px; }
+.game-type-option:focus-visible { outline: 2px solid #8573df; outline-offset: 2px; }
+.game-type-option strong { color: #454257; font-size: 11px; }
+.game-type-option span { font-size: 9px; }
+.game-type-option.selected { background: #f2f0fc; border-color: #9e92e8; box-shadow: 0 0 0 2px #6955d81a; }
+.mode-label { margin-top: 17px; }
+.mode-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.mode-option { display: grid; gap: 3px; min-height: 55px; padding: 9px; color: #777488; text-align: left; background: #fbfbfd; border: 1px solid #e9e8f0; border-radius: 9px; }
+.mode-option strong { color: #454257; font-size: 11px; }
+.mode-option span { font-size: 9px; }
+.mode-option.selected { background: #f2f0fc; border-color: #9e92e8; box-shadow: 0 0 0 2px #6955d81a; }
 .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-top: 12px; }
+.action-grid.solo-action-grid { grid-template-columns: 1fr; }
 .primary-button, .secondary-button { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 47px; padding: 0 14px; border: 0; border-radius: 9px; font-size: 12px; font-weight: 700; transition: background .15s, transform .15s; }
 .primary-button { color: #fff; background: var(--purple); box-shadow: 0 6px 12px #6955d82b; }
 .primary-button:hover:not(:disabled) { background: var(--purple-dark); transform: translateY(-1px); }
@@ -72,9 +88,12 @@ h2 { margin: 1px 0 4px; font-family: Manrope, sans-serif; font-size: 17px; font-
 .how-it-works strong { color: #49465e; font-size: 11px; }
 .notice { margin: 14px 0 0; color: #ae4e52; font-size: 12px; }
 
+/* Room status, coach, and interactive board. */
 .game-card { max-width: 460px; }
 .game-topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 19px; }
 .room-code { color: var(--purple); font-family: Manrope, sans-serif; font-size: 23px; font-weight: 800; letter-spacing: 4px; }
+.mode-pill { padding: 6px 9px; color: #6552cc; background: #f2f0fc; border-radius: 20px; font-size: 9px; font-weight: 700; text-transform: capitalize; }
+.mode-hard { color: #9a5a46; background: #fbf0ec; }
 .copy-button { padding: 8px 11px; color: #5d51a7; background: #f3f1fc; border: 0; border-radius: 8px; font-size: 11px; font-weight: 700; }
 .players { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
 .player-chip { display: flex; align-items: center; gap: 6px; padding: 7px 10px; color: #5d5a6e; background: #f8f7fb; border: 1px solid #f0eff5; border-radius: 8px; font-size: 11px; font-weight: 600; }
@@ -84,15 +103,37 @@ h2 { margin: 1px 0 4px; font-family: Manrope, sans-serif; font-size: 17px; font-
 .turn-banner { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; margin-bottom: 14px; color: #5548aa; background: #f5f3fd; border-radius: 9px; font-size: 12px; font-weight: 600; }
 .turn-banner > span { color: #8678db; font-size: 10px; }
 .turn-banner.finished { color: #39825e; background: #eff9f3; }
+.coach-card { margin-bottom: 14px; padding: 14px; background: #fbfaff; border: 1px solid #eeebf8; border-radius: 12px; }
+.coach-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.coach-icon { display: grid; flex: 0 0 30px; place-items: center; width: 30px; height: 30px; color: #6552cc; background: #eeeafb; border-radius: 9px; font-size: 15px; }
+.coach-heading h2 { margin: 0 0 3px; font-size: 13px; }
+.coach-heading h2 span { color: #827aab; font-size: 11px; font-weight: 600; }
+.coach-heading p, .coach-feedback p, .coach-suggestion p, .coach-wait { margin: 0; color: #88869a; font-size: 10px; line-height: 1.5; }
+.coach-feedback, .coach-suggestion { padding: 10px 11px; background: #fff; border-radius: 8px; }
+.coach-feedback { margin-bottom: 8px; }
+.coach-feedback > strong, .coach-suggestion > strong { display: block; margin-bottom: 4px; color: #454257; font-size: 11px; }
+.coach-feedback > span { display: block; margin-top: 5px; color: #777488; font-size: 10px; }
+.coach-feedback > span strong { color: #5140b7; }
+.coach-feedback > .coach-alternative { color: #5140b7; }
+.coach-suggestion { background: #f0eefb; }
+.coach-suggestion p { color: #5140b7; font-weight: 700; }
+.coach-suggestion p span { color: #777488; font-weight: 500; }
+.coach-wait { padding: 8px 0; }
+.coach-footnote { margin: 9px 0 0; color: #a09eae; font-size: 9px; line-height: 1.45; }
+.coach-normal .coach-suggestion p { color: #39825e; }
+.hard-mode-note { margin: 0 0 14px; padding: 11px; color: #885844; background: #fbf4f0; border-radius: 9px; font-size: 11px; line-height: 1.5; text-align: center; }
 .board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; max-width: 330px; margin: 0 auto; }
 .board-cell { aspect-ratio: 1; display: grid; place-items: center; color: var(--ink); background: #f7f6fb; border: 1px solid #eeedf5; border-radius: 13px; font-family: Manrope, sans-serif; font-size: clamp(42px, 10vw, 58px); font-weight: 500; transition: background .15s, transform .15s; }
 .board-cell:disabled:not(.occupied) { opacity: .8; }
 .board-cell:not(:disabled):hover { background: #efedfa; transform: scale(1.025); }
+.board-cell.suggested { border-color: #8573df; box-shadow: inset 0 0 0 2px #8573df45; }
 .board-cell.occupied { background: #fbfaff; }
 .replay-button { width: 100%; margin-top: 16px; }
+.settings-button { width: 100%; margin-top: 8px; min-height: 43px; }
 .share-hint { margin: 17px 0 0; color: #a09eae; text-align: center; font-size: 11px; }
 .footer { display: flex; justify-content: space-between; max-width: 624px; margin: 25px auto 0; padding: 0 2px 25px; color: #aaa9b6; font-size: 10px; }
 
+/* Collapse the lobby actions and tighten spacing on small screens. */
 @media (max-width: 680px) {
   .page-shell { padding: 0 20px; }
   .topbar { height: 70px; }
@@ -105,6 +146,8 @@ h2 { margin: 1px 0 4px; font-family: Manrope, sans-serif; font-size: 17px; font-
   .action-grid { grid-template-columns: 1fr; }
   .join-row { min-height: 47px; }
   .join-row .secondary-button { min-width: 130px; justify-content: space-around; }
+  .mode-options { gap: 5px; }
+  .mode-option { padding: 7px; }
 }
 
 @media (max-width: 390px) {
